@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xgzo analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <span class="logo-accent">XGZO</span><br>ANALYZER
+        </div>
+        <ul class="nav">
+            <li class="active" onclick="switchTab('dashboard', this)">Dashboard</li>
+            <li onclick="switchTab('logs', this)">Execution Logs</li>
+            <li onclick="switchTab('settings', this)">Settings</li>
+        </ul>
+        <div class="sys-stats">
+            <div class="stat"><span>CPU</span><span id="cpu-stat">0%</span></div>
+            <div class="stat"><span>RAM</span><span id="ram-stat">0%</span></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="topbar">
+            <h1>Command Center</h1>
+            <div class="buttons">
+                <button id="btn-quick" onclick="startScan('quick')" style="background: var(--bg-card); color: var(--text-main); box-shadow: none;">QUICK SCAN</button>
+                <button id="btn-full" onclick="startScan('full')">FULL DRIVE SCAN</button>
+            </div>
+        </div>
+
+        <!-- Dashboard View -->
+        <div id="view-dashboard" class="view active">
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-title">TOTAL THREATS</div>
+                    <div class="stat-value" id="total-threats">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-title">CRITICAL</div>
+                    <div class="stat-value red" id="crit-threats">0</div>
+                </div>
+            </div>
+
+            <div class="grid" id="findings-grid">
+                <div class="card empty">Awaiting scan execution...</div>
+            </div>
+        </div>
+
+        <!-- Logs View -->
+        <div id="view-logs" class="view">
+            <div class="terminal" id="terminal-output">
+                > System Ready. Awaiting execution.
+            </div>
+        </div>
+        
+        <!-- Settings View -->
+        <div id="view-settings" class="view">
+            <div class="card">Settings panel under construction.</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
